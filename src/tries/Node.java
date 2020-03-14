@@ -15,6 +15,10 @@ public class Node {
         this.isCompleteWord = bool;
     }
 
+    public boolean isCompleteWord() {
+        return this.isCompleteWord;
+    }
+
     public Node getChild(char key) {
         return this.children.get(key);
     }

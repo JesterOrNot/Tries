@@ -24,18 +24,34 @@ public class Tries {
     }
 
     public boolean hasWord(String word) {
+        Node theNode = this.searchNode(word);
+        if (theNode != null && theNode.isCompleteWord())
+            return true;
+        else
+            return false;
+    }
+
+    public boolean startsWith(String prefix) {
+        if (searchNode(prefix) == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public Node searchNode(String query) {
         HashMap<Character, Node> children = this.rootNode.getChildren();
         Node currentNode = this.rootNode;
-        for (int i = 0; i < word.length(); i++) {
-            char character = word.charAt(i);
+        for (int i = 0; i < query.length(); i++) {
+            char character = query.charAt(i);
             if (currentNode.hasChild(character)) {
                 currentNode = children.get(character);
                 children = currentNode.getChildren();
             } else {
-                return false;
+                return null;
             }
         }
-        return true;
+        return currentNode;
     }
 
     public void insert(String word) {
