@@ -25,14 +25,15 @@ public class Tries {
 
     public boolean hasWord(String word) {
         Node theNode = this.searchNode(word);
-        if (theNode != null && theNode.isCompleteWord())
+        if (theNode != null && theNode.isCompleteWord()) {
             return true;
-        else
+        } else {
             return false;
+        }
     }
 
-    public boolean startsWith(String prefix) {
-        if (searchNode(prefix) == null) {
+    public boolean hasPrefix(String prefix) {
+        if (searchNode(prefix) != null) {
             return true;
         } else {
             return false;
