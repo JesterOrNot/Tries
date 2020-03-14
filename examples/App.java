@@ -3,6 +3,7 @@
  * App
  */
 import tries.Tries;
+import tries.Node;
 
 public class App {
 

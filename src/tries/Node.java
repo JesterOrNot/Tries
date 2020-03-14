@@ -7,43 +7,44 @@ public class Node {
     private boolean isCompleteWord;
     private char value;
 
-    public boolean hasChild(char key) {
+    protected boolean hasChild(char key) {
         return children.containsKey(key);
     }
 
-    public void setIsCompleteWord(boolean bool) {
+    protected char getValue() {
+        return value;
+    }
+
+    protected void setValue(char value) {
+        this.value = value;
+    }
+
+    protected void setIsCompleteWord(boolean bool) {
         this.isCompleteWord = bool;
     }
 
-    public boolean isCompleteWord() {
+    protected boolean isCompleteWord() {
         return this.isCompleteWord;
     }
 
-    public Node getChild(char key) {
+    protected Node getChild(char key) {
         return this.children.get(key);
     }
 
-    public HashMap<Character, Node> getChildren() {
+    protected HashMap<Character, Node> getChildren() {
         return this.children;
     }
 
-    public void setChildren(HashMap<Character, Node> children) {
+    protected void setChildren(HashMap<Character, Node> children) {
         this.children = children;
     }
 
-    public Node clone() {
-        Node node = new Node(this.value);
-        node.setIsCompleteWord(this.isCompleteWord);
-        node.setChildren(this.children);
-        return node;
-    }
-
-    public void appendChild(char key) {
+    protected void appendChild(char key) {
         children.putIfAbsent(key, new Node(key));
     }
 
-    public Node(char value) {
-        this.value = value;
+    protected Node(char val) {
+        setValue(val);
     }
 
 }

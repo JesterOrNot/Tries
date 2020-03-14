@@ -6,7 +6,7 @@ import java.util.HashMap;
  * A Trie Library
  */
 public class Tries {
-    public Node rootNode;
+    private Node rootNode;
 
     public Tries() {
         this.rootNode = new Node('\033');
@@ -40,7 +40,7 @@ public class Tries {
         }
     }
 
-    public Node searchNode(String query) {
+    private Node searchNode(String query) {
         HashMap<Character, Node> children = this.rootNode.getChildren();
         Node currentNode = this.rootNode;
         for (int i = 0; i < query.length(); i++) {
