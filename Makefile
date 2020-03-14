@@ -1,8 +1,8 @@
 classes/*: src/tries/*
 	javac -d classes src/tries/*.java
-run:
-	java -classpath classes src/App.java
-.PHONY: run
+example: classes/*
+	java -classpath classes examples/App.java
+.PHONY: example
 clean:
 	rm -rf classes
 .PHONY: clean
