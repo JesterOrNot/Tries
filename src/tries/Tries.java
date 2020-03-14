@@ -7,7 +7,6 @@ import java.util.HashMap;
  */
 public class Tries {
     public Node rootNode;
-    public Node currentNode;
 
     public Tries() {
         this.rootNode = new Node('\033');
@@ -25,8 +24,8 @@ public class Tries {
     }
 
     public boolean hasWord(String word) {
-        HashMap<Character, Node> children = rootNode.getChildren();
-        Node currentNode = rootNode;
+        HashMap<Character, Node> children = this.rootNode.getChildren();
+        Node currentNode = this.rootNode;
         for (int i = 0; i < word.length(); i++) {
             char character = word.charAt(i);
             if (currentNode.hasChild(character)) {
@@ -40,7 +39,7 @@ public class Tries {
     }
 
     public void insert(String word) {
-        Node currentNode = rootNode;
+        Node currentNode = this.rootNode;
         for (int i = 0; i < word.length(); i++) {
             char character = word.charAt(i);
             if (!currentNode.hasChild(character)) {
